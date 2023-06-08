@@ -1,7 +1,7 @@
 - name: This sets up an httpd webserver
   hosts: all
   become: yes
-  remote_user: san
+  remote_user: ubuntu
   gather_facts: true
   vars:
     ansible_ssh_private_key_file: /root/san  
