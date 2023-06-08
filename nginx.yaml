@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: install nginx
+      package: name=nginx state=installed
+    - name: configure
+      shell: "echo Hello this is a pipeline test !!! > /var/www/html/index.html"
+    - name: start service
+      service: name=nginx state=started
