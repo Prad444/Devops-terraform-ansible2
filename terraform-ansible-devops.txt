@@ -74,9 +74,9 @@ sudo yum install ansible
    uncomment host_key_checking=FALSE
 
 
---- create a keypair on centos hostmachine to import a keypair named raman-import on aws ohio region to authenticate :
+--- create a keypair on centos hostmachine to import a keypair named san on aws ohio region to authenticate :
 ssh-keygen -t rsa
--- import the public key to virginia in creation raman-import key
+-- import the public key to virginia in creation san key
 
 
 ----- build ur pipeline 
@@ -94,7 +94,11 @@ ssh-keygen -t rsa
   521  git push origin main
 
 
-======================================================================================
+=======================================================================================================================
+
+========================================================================================================================
+
+========================================================================================================================
 
 End to End pipline on ubuntu machine
 
