@@ -130,7 +130,7 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   https://pkg.jenkins.io/debian binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 sudo apt-get update
-sudo apt-get install jenkins
+sudo apt-get install jenkins -y
 
 ---- to provide jenkins root previlegs :
 
@@ -150,13 +150,14 @@ systemctl daemon-reload
 
 systemctl restart jenkins
 
+# Jenkins works on port no 8080
 
 Step 4 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Install Ansible on this Server <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-$ sudo apt update
-$ sudo apt install software-properties-common
-$ sudo add-apt-repository --yes --update ppa:ansible/ansible
-$ sudo apt install ansible
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible -y
 
 -- vi /etc/ansible/ansible.cfg
    uncomment host_key_checking=FALSE
@@ -181,6 +182,7 @@ resource "aws_key_pair" "san" {
 
 Step 6 >>>>>>>>>>>>>>>>>>>>>>>>>>>> create a pipeline and use the below Jenkins script >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+access the Jenkins server >>>> PublicIP:8080  >> provide the secret password >>>install the required plugins
 
 #!/bin/bash
 terraform init
